@@ -1,0 +1,29 @@
+name: ElevateAI Transcription
+description: Speech-to-Text: Get transcription of an audio file.
+branding:
+  icon: 'chevron-up'
+  color: 'blue'
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'File to transcribe'
+        required: true
+    secrets:
+      api_key:
+        description: 'ElevateAI API Key'
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Transcription
+      run: python app.py -f ${{ inputs.file }} -k ${{ secrets.api_key }}
