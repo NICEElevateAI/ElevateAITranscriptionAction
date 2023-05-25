@@ -1,5 +1,5 @@
-name: ElevateAI Transcription
-description: Speech-to-Text: Get transcription of an audio file.
+name: ElevateAI Speech-to-Text
+description: Get transcription of an audio file.
 branding:
   icon: 'chevron-up'
   color: 'blue'
